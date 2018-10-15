@@ -1,11 +1,13 @@
 package controller;
 
+import view.Chart;
 import view.Preload;
 import view.Menu;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
+import java.util.Scanner;
 
 public class main {
 
@@ -15,8 +17,19 @@ public class main {
         // получение параметров
         getProp();
         // прелоедер
-        Menu menu = new Menu();
-        menu.startUp();
+        Scanner reader = new Scanner(System.in);
+        System.out.println("chart or text?");
+        String n = reader.nextLine();
+        if(n.equals("chart")){
+            Chart barchart = new Chart();
+            barchart.show_chart();
+        } else if (n.equals("text")){
+            Menu menu = new Menu();
+            menu.startUp();
+        } else {
+            System.out.println("err");
+        }
+        reader.close();
     }
 
     public static void getProp() {

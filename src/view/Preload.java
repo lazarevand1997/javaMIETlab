@@ -33,7 +33,7 @@ public class Preload extends Preloader {
     @Override
     public void handleStateChangeNotification(StateChangeNotification evt) {
         if (evt.getType() == StateChangeNotification.Type.BEFORE_START) {
-            stage.hide();
+            //stage.hide();
         }
     }
 }

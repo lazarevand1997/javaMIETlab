@@ -1,5 +1,7 @@
 package view;
 
+import view.Chart;
+
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -16,18 +18,31 @@ public class Menu extends Application{
 
     @Override
     public void start(Stage primaryStage) {
-        primaryStage.setTitle("Hello World!");
+        primaryStage.setTitle("Analytics");
         Button btn = new Button();
-        btn.setText("Say 'Hello World'");
+        btn.setText("Check buttons clicks from array");
         btn.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent event) {
-                System.out.println("Hello World!");
+                int[] buttons_clicks = {13, 34, 234, 52, 123, 74, 149};
+                Stats stats = new Stats();
+                stats.print_stats(buttons_clicks);
+            }
+        });
+
+        Button btn_json = new Button();
+        btn_json.setText("Check buttons clicks from json file");
+        btn_json.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                System.out.println("Not yet!");
             }
         });
 
         StackPane root = new StackPane();
+        btn.setLayoutX(100);
+        btn.setLayoutY(10);
         root.getChildren().add(btn);
         primaryStage.setScene(new Scene(root, 300, 250));
         primaryStage.show();

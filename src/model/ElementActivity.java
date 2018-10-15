@@ -1,5 +1,6 @@
 package model;
 
 public class ElementActivity {
-    public int element_id;
+    public String button_name;
+    public int button_clicks;
 }
