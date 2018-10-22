@@ -1,7 +1,6 @@
 package controller;
 
 import view.Chart;
-import view.Preload;
 import view.Menu;
 
 import java.io.FileInputStream;
@@ -18,12 +17,13 @@ public class main {
         getProp();
         // прелоедер
         Scanner reader = new Scanner(System.in);
-        System.out.println("chart or text?");
-        String n = reader.nextLine();
-        if(n.equals("chart")){
+        String questToUser = "chart or text?";
+        System.out.println(questToUser);
+        String  printMode = reader.nextLine();
+        if(printMode.contentEquals(PrintModes.CHART_MODE)){
             Chart barchart = new Chart();
-            barchart.show_chart();
-        } else if (n.equals("text")){
+            barchart.showChart();
+        } else if (printMode.contentEquals(PrintModes.TEXT_MODE)){
             Menu menu = new Menu();
             menu.startUp();
         } else {

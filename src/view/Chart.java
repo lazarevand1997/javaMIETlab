@@ -8,17 +8,17 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.stage.Stage;
 
-import java.util.Arrays;
-
 public class Chart extends Application {
-    int[] buttons_clicks = {13, 34, 234, 52, 123, 74, 149};
 
 
-    @Override public void start(Stage stage) {
-        int win_proc = (100 * 5)/(buttons_clicks.length +4);
+    @Override
+    public void start(Stage stage) {
+        int[] buttonsClicks = {13, 34, 234, 52, 123, 74, 149};
+
+        int win_proc = (100 * 5)/(buttonsClicks.length +4);
         int max = 0;
-        for(int i =0; i < buttons_clicks.length; i++){
-            if (buttons_clicks[i] > max) max = buttons_clicks[i];
+        for(int i = 0; i < buttonsClicks.length; i++){
+            if (buttonsClicks[i] > max) max = buttonsClicks[i];
         }
         int win_clicks = max / 100 * win_proc;
 
@@ -34,12 +34,12 @@ public class Chart extends Application {
 
         XYChart.Series series1 = new XYChart.Series();
         series1.setName("Buttons");
-        int N = buttons_clicks.length;
-        //Arrays.sort(buttons_clicks);
-        for ( int i = 0; i < N; i++){
-            String butt_i;
-            butt_i = Integer.toString(i);
-            series1.getData().add(new XYChart.Data(buttons_clicks[i], butt_i));
+        int buttonsCount = buttonsClicks.length;
+        //Arrays.sort(buttonsClicks);
+        for ( int index = 0; index < buttonsCount; index++){
+            String buttonIndex;
+            buttonIndex = Integer.toString(index);
+            series1.getData().add(new XYChart.Data(buttonsClicks[index], buttonIndex));
         }
 
         XYChart.Series series2 = new XYChart.Series();
@@ -52,7 +52,7 @@ public class Chart extends Application {
         stage.show();
     }
 
-    public static void show_chart() {
+    public static void showChart() {
         launch();
     }
 }
